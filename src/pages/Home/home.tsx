@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import { IResourceComponentsProps, getDefaultFilter,useList,useGetIdentity,useMany,useOne } from "@refinedev/core";
 import { Show } from "@refinedev/antd";
-import { Button,Typography,Image } from "antd";
+import { Button,Typography,Image,Steps,ConfigProvider } from "antd";
 import {BarChartOutlined,LineChartOutlined} from '@ant-design/icons'
  import projectStyles from './style.module.css'
 import styles from './home.module.css'
@@ -50,6 +50,10 @@ export const Home: React.FC<IResourceComponentsProps> = () => {
 
             </div>
 
+            <div>
+                
+            </div>
+
             <div className="hero">
             
                
@@ -57,9 +61,44 @@ export const Home: React.FC<IResourceComponentsProps> = () => {
                     <h3 className='heading'>Take Control of your website</h3>
                     <h5 className="subheading">library that tracks your react-website logs</h5>
                 </div>
-                <Image  width={500} preview={false} src={Graph}/>
+                <Image  width={400} preview={false} src={Graph}/>
             
             </div>
+
+<div className="steps">
+            <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: '#7958a8',
+      },
+    }}
+  >
+  <Steps
+    current={3}
+
+style={{color:'red'}}
+   items={[
+      {
+        title: 'Install library',
+        description:'npm',
+        
+        
+      },
+      {
+        title: 'Sign up',
+        description:'dashboard',
+        subTitle: 'unique id',
+        status:'finish'
+      },
+      {
+        title: 'Start tracking',
+        description:'react-app',
+        status:'finish'
+      },
+    ]}
+  />
+      </ConfigProvider>
+      </div>
            
 
             <div className="main">
@@ -80,7 +119,10 @@ export const Home: React.FC<IResourceComponentsProps> = () => {
                     <h5 className="subheading">
                         create your unique id and start tracking as simple as that</h5>
 
-                    <Button className="button docs_button">Read Docs</Button>
+<a href="https://github.com/Kaku-g/react-analytics">
+<Button className="button docs_button">Read Docs</Button>
+</a>
+                    
 
                 </div>
                 <Image width={700} preview={false} src={Use}  />
