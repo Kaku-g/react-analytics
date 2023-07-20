@@ -52,7 +52,7 @@ export const Home: React.FC<IResourceComponentsProps> = () => {
             <div className="main">
                
               
-                <Image preview={false} src={Carbon} />
+                <Image width={600} preview={false} src={Carbon} />
                 <div className="main_text">
                   <h3 className="heading" style={{fontWeight:'400'}}>Track your Analytics</h3>
                   <h5 className="subheading">

@@ -310,7 +310,7 @@ const App: React.FC = () => {
                    
                 >
                     <Routes>
-                    <Route path="/home">
+                    <Route path="/">
                                  <Route index element={<Home/>}/>
                             </Route>
                         <Route
