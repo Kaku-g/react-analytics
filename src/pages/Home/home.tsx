@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { IResourceComponentsProps, getDefaultFilter,useList,useGetIdentity,useMany,useOne } from "@refinedev/core";
 import { Show } from "@refinedev/antd";
@@ -18,11 +18,16 @@ import { Navigate } from "react-router-dom";
 
 
 
+
 const {Title,Paragraph,Text,Link}=Typography;
 
 export const Home: React.FC<IResourceComponentsProps> = () => {
 
-
+    const { data} = useGetIdentity<{
+        id:string,
+        email:string
+    }>();
+   
     return(
         
 
@@ -31,9 +36,17 @@ export const Home: React.FC<IResourceComponentsProps> = () => {
             
             <div className="navbar" >
                 <div>React-Analytics</div>
+                
+                    
+                {!data && 
                 <a href="./login">
-                <Button className="button"  style={{color:'purple'}}>Get started</Button>
+                    <Button className="button"  style={{color:'purple'}}>Get started</Button>
                 </a>
+}
+               
+                {data && 
+                 <a href="./profile"> <Button className="button"  style={{color:'purple'}}>View Dashboard</Button> 
+                </a>}
 
             </div>
 
