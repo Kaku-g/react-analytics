@@ -50,6 +50,7 @@ const authProvider: AuthBindings = {
                 if (data?.url) {
                     return {
                         success: true,
+                        redirectTo:'/profile',
                     };
                 }
             }
@@ -71,6 +72,8 @@ const authProvider: AuthBindings = {
             if (data?.user) {
                 return {
                     success: true,
+                    redirectTo:'/profile',
+
                 };
             }
         } catch (error: any) {
