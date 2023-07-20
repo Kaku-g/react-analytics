@@ -24,7 +24,7 @@ import {BarChartOutlined} from '@ant-design/icons'
 
 export const PostList: React.FC<IResourceComponentsProps> = () => {
     const [value,setValue]=useState('');
-    const [count,setCount]=useState();
+    const [count,setCount]=useState(0);
     // const [options,setOptions]=useState(['']);
 
 
@@ -68,7 +68,7 @@ export const PostList: React.FC<IResourceComponentsProps> = () => {
     })
 
     useEffect(()=>{
-        if(filterProps)
+        if(filterProps.pagination && filterProps.pagination.total)
          setCount(filterProps.pagination?.total)
     },[value])
    // console.log(filterProps.pagination?.total)
@@ -80,7 +80,11 @@ export const PostList: React.FC<IResourceComponentsProps> = () => {
    
 const handleChange=(e:any)=>{
     setValue(e.target.value);
-    setCount(filterProps.pagination?.total);
+    if(filterProps.pagination && filterProps.pagination.total)
+    {
+        setCount(filterProps.pagination?.total);
+    }
+    
 }
     return (
         <div>
