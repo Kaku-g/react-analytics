@@ -328,6 +328,7 @@ const App: React.FC = () => {
                                 index
                                 element={
                                     <NavigateToResource resource="analytics" />
+                                    //new
                                 }
                             />
 
