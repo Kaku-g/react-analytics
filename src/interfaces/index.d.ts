@@ -20,3 +20,24 @@ export interface IPost {
     categoryId: string;
     images: IFile[];
 }
+
+export interface Analytics{
+    created_at:string,
+    country:string,
+    browser:string,
+    os:string,
+    link:string,
+    project:string,
+
+    date:string,
+    time:string,
+    userId:string
+
+
+}
+
+export interface Project{
+    project:string
+
+}
+

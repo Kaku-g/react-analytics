@@ -2,7 +2,7 @@ import {
     GitHubBanner,
     Refine,
     AuthBindings,
-    Authenticated,
+    Authenticated
 } from "@refinedev/core";
 import {
     notificationProvider,
@@ -13,6 +13,7 @@ import {
 } from "@refinedev/antd";
 import { dataProvider, liveProvider } from "@refinedev/supabase";
 import routerProvider, {
+
     CatchAllNavigate,
     NavigateToResource,
     UnsavedChangesNotifier,
@@ -24,8 +25,10 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 import "@refinedev/antd/dist/reset.css";
 
-import { PostList, PostCreate, PostEdit, PostShow } from "../src/pages/posts";
+import { PostList,  } from "./pages/user";
+import { Projects } from "./pages/projects";
 import { supabaseClient } from "../src/utility";
+import {Home} from './pages/Home';
 
 const authProvider: AuthBindings = {
     login: async ({ email, password, providerName }) => {
@@ -240,7 +243,7 @@ const authProvider: AuthBindings = {
         }
 
         return {
-            authenticated: true,
+            authenticated: true
         };
     },
     getPermissions: async () => {
@@ -269,42 +272,51 @@ const authProvider: AuthBindings = {
 const App: React.FC = () => {
     return (
         <BrowserRouter>
-            <GitHubBanner />
-            <ConfigProvider theme={RefineThemes.Blue}>
+            <ConfigProvider theme={RefineThemes.Purple}>
                 <Refine
                     dataProvider={dataProvider(supabaseClient)}
                     liveProvider={liveProvider(supabaseClient)}
+                    
                     routerProvider={routerProvider}
                     authProvider={authProvider}
                     resources={[
                         {
-                            name: "posts",
-                            list: "/posts",
-                            create: "/posts/create",
-                            edit: "/posts/edit/:id",
-                            show: "/posts/show/:id",
+                            name: "analytics",
+                            list: "/user",
+                            // create: "/user/create",
+                            // edit: "/user/edit/:id",
+                            // show: "/user/show/:id",
                             meta: {
                                 canDelete: true,
                             },
+                            
+                        },
+                        {
+                            name:"profile",
+                            list:"/profile",
+                            meta: {
+                                canDelete: true,
+                            },
+                            
                         },
                     ]}
                     notificationProvider={notificationProvider}
-                    /**
-                     * Multiple subscriptions are currently not supported with the supabase JS client v2 and @refinedev/supabase v4.
-                     * Therefore, enabling global live mode will cause unexpected behaviors.
-                     * Please set `liveMode: "auto"` or `liveMode: "manual"` manually while using real-time features of refine.
-                     */
+                    
                     options={{
                         liveMode: "off",
                         syncWithLocation: true,
                         warnWhenUnsavedChanges: true,
                     }}
+                   
                 >
                     <Routes>
+                    <Route path="/home">
+                                 <Route index element={<Home/>}/>
+                            </Route>
                         <Route
                             element={
                                 <Authenticated
-                                    fallback={<CatchAllNavigate to="/login" />}
+                                 loading={<div>Logging in......</div>}   fallback={<CatchAllNavigate to="/login" />}
                                 >
                                     <ThemedLayoutV2>
                                         <Outlet />
@@ -315,22 +327,27 @@ const App: React.FC = () => {
                             <Route
                                 index
                                 element={
-                                    <NavigateToResource resource="posts" />
+                                    <NavigateToResource resource="analytics" />
                                 }
                             />
 
-                            <Route path="/posts">
+                            <Route path="/user">
                                 <Route index element={<PostList />} />
-                                <Route path="create" element={<PostCreate />} />
+                                {/* <Route path="create" element={<PostCreate />} />
                                 <Route path="edit/:id" element={<PostEdit />} />
-                                <Route path="show/:id" element={<PostShow />} />
+                                <Route path="show/:id" element={<PostShow />} /> */}
+                               
                             </Route>
+                            <Route path="/profile">
+                                <Route index element={<Projects/>}/>
+                            </Route>
+                          
                         </Route>
 
                         <Route
                             element={
                                 <Authenticated fallback={<Outlet />}>
-                                    <NavigateToResource resource="posts" />
+                                    <NavigateToResource resource="profile" />
                                 </Authenticated>
                             }
                         >
@@ -339,6 +356,8 @@ const App: React.FC = () => {
                                 element={
                                     <AuthPage
                                         type="login"
+                                        title='React-Analytics'
+                                      
                                         providers={[
                                             {
                                                 name: "google",
@@ -355,8 +374,8 @@ const App: React.FC = () => {
                                         ]}
                                         formProps={{
                                             initialValues: {
-                                                email: "info@refine.dev",
-                                                password: "refine-supabase",
+                                                email: "youremail@provider.com",
+                                                password: "nooneknows",
                                             },
                                         }}
                                     />

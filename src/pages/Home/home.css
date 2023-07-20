@@ -1,0 +1,80 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&display=swap');
+
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color:#7958a8;
+    color:white;
+    font-family: kanit;
+}
+.main{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    color: black;
+    font-family: 'Kanit', sans-serif;
+}
+
+.main_text{
+     font-weight: 400;
+}
+
+.how{
+}
+.how_cont{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+/* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+color: black;
+font-family: 'Kanit', sans-serif;
+
+
+}
+
+.home{
+    background: white;
+    /* background: white; */
+}
+
+.footer{
+    background-color: #7958a8;
+    height:50px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    font-family: 'Kanit', sans-serif;
+}
+a{
+    color:white;
+}
+
+.hero{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Kanit', sans-serif;
+}
+.heading{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.subheading{
+    font-size: 15px;
+    color:rgb(61, 54, 54);
+}
+
+.button{
+    font-family: 'Kanit', sans-serif;
+}
+.docs_button{
+    color: #7958a8;
+    ;
+}
