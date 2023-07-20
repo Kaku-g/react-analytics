@@ -9,7 +9,7 @@
     padding: 20px;
     background-color:#7958a8;
     color:white;
-    font-family:''
+    
 }
 .main{
     display: flex;
@@ -64,7 +64,7 @@ a{
 }
 .heading{
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .subheading{
@@ -87,4 +87,9 @@ a{
     margin:30px;
     height:150px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar_heading{
+    font-size: 1.2rem;
+    font-weight: 700;
 }

@@ -35,7 +35,7 @@ export const Home: React.FC<IResourceComponentsProps> = () => {
 
             
             <div className="navbar" >
-                <div>React-Analytics</div>
+                <div className="navbar_heading">React-Analytics</div>
                 
                     
                 {!data && 
@@ -106,7 +106,7 @@ style={{color:'red'}}
               
                 <Image width={600} preview={false} src={Carbon} />
                 <div className="main_text">
-                  <h3 className="heading" style={{fontWeight:'400'}}>Track your Analytics</h3>
+                  <h3 className="heading" >Track your Analytics</h3>
                   <h5 className="subheading">
                   Easy to implement with single line of code</h5>
                   </div>
